@@ -19,6 +19,10 @@ var charges: int
 var _velocity: Vector2
 var _dead: bool
 
+func set_direction(direction: Vector2) -> void:
+	_velocity = direction * speed
+
+
 func _ready():
 	# needs to be disabled to use move_and_collide
 	sync_to_physics = false

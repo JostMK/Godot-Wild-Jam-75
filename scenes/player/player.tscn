@@ -12,6 +12,7 @@ collision_mask = 5
 sync_to_physics = false
 script = ExtResource("1_m4fgs")
 visuals = NodePath("Sprite2D")
+speed = 500.0
 damage_layer = 4
 velocity_damping = 200.0
 rotation_speed = 720.0

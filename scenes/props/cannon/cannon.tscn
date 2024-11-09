@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6l8u4efrjft7"]
+
+[ext_resource type="Script" path="res://scenes/props/cannon/cannon.gd" id="1_0tgv6"]
+[ext_resource type="Texture2D" uid="uid://br0cnx64tbkx7" path="res://assets/sprites/canon.svg" id="1_r4otj"]
+[ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_xhqyx"]
+
+[sub_resource type="Animation" id="Animation_uhfrn"]
+resource_name = "rotate"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.785398, 0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_pmhmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vnnk"]
+_data = {
+"RESET": SubResource("Animation_pmhmq"),
+"rotate": SubResource("Animation_uhfrn")
+}
+
+[node name="Cannon" type="Node2D"]
+script = ExtResource("1_0tgv6")
+player_scene = ExtResource("2_xhqyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.140447, 0.140447, 0.140447, 1)
+z_index = 5
+position = Vector2(32, 0)
+texture = ExtResource("1_r4otj")
+
+[node name="PlayerSpawn" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(93, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6vnnk")
+}
+autoplay = "rotate"
+speed_scale = 1.5

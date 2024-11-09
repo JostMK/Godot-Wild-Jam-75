@@ -2,28 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="1_kpqgj"]
 [ext_resource type="PackedScene" uid="uid://dfj6a4mae85vf" path="res://scenes/camera/follow_camera.tscn" id="2_ci57k"]
-[ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_epn4y"]
 [ext_resource type="PackedScene" uid="uid://y2cad83txkic" path="res://scenes/sceneries/blocky_scenery.tscn" id="3_h60qi"]
 [ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="5_mssfh"]
+[ext_resource type="PackedScene" uid="uid://b6l8u4efrjft7" path="res://scenes/props/cannon/cannon.tscn" id="6_x4ju8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
 size = Vector2(1280, 256)
 
 [node name="Main" type="Node2D"]
 
-[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_ci57k")]
-position = Vector2(-487, 0)
-offset = Vector2(487, 0)
-target = NodePath("../Player")
+[node name="FollowCamera" parent="." instance=ExtResource("2_ci57k")]
+offset = Vector2(500, 0)
 
-[node name="Player" parent="." instance=ExtResource("2_epn4y")]
-position = Vector2(-487, 0)
-speed = 500.0
+[node name="Cannon" parent="." instance=ExtResource("6_x4ju8")]
 
 [node name="TestLevel" type="Node2D" parent="."]
+position = Vector2(600, 0)
 
 [node name="BlockyScenery" parent="TestLevel" instance=ExtResource("3_h60qi")]
-visible = false
 
 [node name="Map" type="Node2D" parent="TestLevel"]
 
@@ -37,6 +33,18 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_5nvy8")
 
 [node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling/Ceiling1"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Ceiling5" type="StaticBody2D" parent="TestLevel/Map/Ceiling"]
+position = Vector2(-1280, -360)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Ceiling/Ceiling5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling/Ceiling5"]
 self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("1_kpqgj")
@@ -87,6 +95,18 @@ collision_mask = 0
 shape = SubResource("RectangleShape2D_5nvy8")
 
 [node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor/Floor1"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor5" type="StaticBody2D" parent="TestLevel/Map/Floor"]
+position = Vector2(-1280, 360)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Floor/Floor5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor/Floor5"]
 self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("1_kpqgj")
@@ -385,3 +405,5 @@ shape = SubResource("RectangleShape2D_5nvy8")
 self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("1_kpqgj")
+
+[connection signal="Fired" from="Cannon" to="FollowCamera" method="set_target"]

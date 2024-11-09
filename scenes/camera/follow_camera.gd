@@ -1,18 +1,13 @@
 extends Camera2D
 class_name FollowCamera
 
-@export var target: Node2D :
-	set(value):
-		target = value
-		if target:
-			offset = target.global_position * -1
+@export var target: Node2D 
 
 @export var speed: float = 500
 
-func _ready():
-	if target:
-		offset = target.global_position * -1
-
+func set_target(new_target: Node2D) -> void:
+	target = new_target
+	
 
 func _process(delta: float) -> void:
 	if not target:
