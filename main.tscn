@@ -1,3 +1,38 @@
-[gd_scene format=3 uid="uid://duk533ajtr0cx"]
+[gd_scene load_steps=4 format=3 uid="uid://duk533ajtr0cx"]
+
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="1_kpqgj"]
+[ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_epn4y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
+size = Vector2(1280, 256)
 
 [node name="Main" type="Node2D"]
+
+[node name="TestLevel" type="Node2D" parent="."]
+
+[node name="Ceiling" type="StaticBody2D" parent="TestLevel"]
+position = Vector2(0, -360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Ceiling"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Ceiling"]
+self_modulate = Color(0.110587, 0.1092, 0.13, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor" type="StaticBody2D" parent="TestLevel"]
+position = Vector2(0, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Floor"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Floor"]
+self_modulate = Color(0.110587, 0.1092, 0.13, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_epn4y")]
+position = Vector2(-487, 0)
