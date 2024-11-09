@@ -127,28 +127,261 @@ self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("1_kpqgj")
 
-[node name="Spike" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spikes" type="Node2D" parent="TestLevel/Map"]
+
+[node name="Spike" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 rotation = -1.5708
 
-[node name="Spike6" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spike6" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 position = Vector2(497, -112)
 rotation = -1.5708
 
-[node name="Spike7" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
-position = Vector2(310, 150)
+[node name="Spike26" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3010, 168)
 rotation = -1.5708
 
-[node name="Spike2" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spike15" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(657, -112)
+rotation = 1.5708
+
+[node name="Spike21" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2224, 0)
+rotation = 1.5708
+
+[node name="Spike22" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2227, 209)
+rotation = 1.5708
+
+[node name="Spike7" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1905, 0)
+rotation = -1.5708
+
+[node name="Spike14" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1907, 209)
+rotation = -1.5708
+
+[node name="Spike11" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(902, 45.064)
+rotation = -1.5708
+
+[node name="Spike16" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1619, -208)
+rotation = -1.5708
+
+[node name="Spike17" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1619, -160)
+rotation = -1.5708
+
+[node name="Spike18" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1619, -112)
+rotation = -1.5708
+
+[node name="Spike27" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, 111)
+rotation = -1.5708
+
+[node name="Spike28" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, 159)
+rotation = -1.5708
+
+[node name="Spike29" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, 207)
+rotation = -1.5708
+
+[node name="Spike30" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, -208)
+rotation = -1.5708
+
+[node name="Spike31" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, -160)
+rotation = -1.5708
+
+[node name="Spike32" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3534, -112)
+rotation = -1.5708
+
+[node name="Spike2" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 position = Vector2(-190, 232)
 
-[node name="Spike3" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spike8" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(931, 232)
+
+[node name="Spike23" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2455, 232)
+
+[node name="Spike24" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2632, 232)
+
+[node name="Spike25" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2791, 232)
+
+[node name="Spike33" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3706, 87)
+
+[node name="Spike34" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(4066, 87)
+
+[node name="Spike12" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1126, 22)
+
+[node name="Spike9" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1229, 232)
+
+[node name="Spike10" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1499, 232)
+
+[node name="Spike3" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 position = Vector2(213, -232)
-rotation = 3.14159
+rotation = -3.14159
 
-[node name="Spike4" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spike4" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 position = Vector2(275, -232)
-rotation = 3.14159
+rotation = -3.14159
 
-[node name="Spike5" parent="TestLevel/Map" instance=ExtResource("5_mssfh")]
+[node name="Spike19" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2491, -232)
+rotation = -3.14159
+
+[node name="Spike20" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(2553, -232)
+rotation = -3.14159
+
+[node name="Spike35" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(3878, -88)
+rotation = -3.14159
+
+[node name="Spike5" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
 position = Vector2(340, -232)
-rotation = 3.14159
+rotation = -3.14159
+
+[node name="Spike13" parent="TestLevel/Map/Spikes" instance=ExtResource("5_mssfh")]
+position = Vector2(1052, 69)
+rotation = -3.14159
+
+[node name="Blocks" type="Node2D" parent="TestLevel/Map"]
+
+[node name="Blocks1" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(577, -112)
+scale = Vector2(0.125, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks1"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks1"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks2" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(160, 0)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks3" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(2064, 0)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks4" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(1062, 45)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks5" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(2067, 209)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks5"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks6" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(1683, -160)
+scale = Vector2(0.1, 0.564)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks6"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks6"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks7" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(3090, 168)
+scale = Vector2(0.125, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks7"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks7"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks8" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(3854, 159)
+scale = Vector2(0.5, 0.564)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks8"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks8"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Blocks9" type="StaticBody2D" parent="TestLevel/Map/Blocks"]
+position = Vector2(3854, -160)
+scale = Vector2(0.5, 0.564)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Blocks/Blocks9"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Blocks/Blocks9"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
