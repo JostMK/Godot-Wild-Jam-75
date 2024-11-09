@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgnw7qggtji6i"]
+
+[ext_resource type="Texture2D" uid="uid://7ihkr23b6ula" path="res://assets/sprites/spike.svg" id="1_rletb"]
+
+[node name="Spike" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-24, 0, 0, -41, 24, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0.09, 0.09, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rletb")
+offset = Vector2(0, -48)

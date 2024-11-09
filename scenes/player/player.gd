@@ -4,23 +4,36 @@ class_name Player
 signal Bounce
 signal Reflect
 
+@export var visuals: Node2D
+
 @export var speed: float = 300.0
 @export var max_charges: int = 1
+
+@export_category("Death Settings")
+@export_flags_2d_physics var damage_layer: int
+@export var velocity_damping: float
+@export var rotation_speed: float
 
 var charges: int
 
 var _velocity: Vector2
-
+var _dead: bool
 
 func _ready():
 	# needs to be disabled to use move_and_collide
 	sync_to_physics = false
 
 	charges = max_charges
-	_velocity = Vector2(1, 1).normalized()
+	_velocity = Vector2(1, 1).normalized() * speed
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+	if _dead:
+		_velocity = _velocity.move_toward(Vector2.ZERO, velocity_damping * delta)
+		# rotation speed is proportional to velocity
+		var rotation_degree = lerp(0., rotation_speed, _velocity.length_squared() / (speed**2))
+		visuals.rotate(deg_to_rad(rotation_degree * delta))
+		return
 
 	if Input.is_action_just_pressed("Reflect") and charges > 0:
 		_velocity.y *= -1
@@ -30,7 +43,7 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var move_amount: Vector2 = _velocity * speed * delta
+	var move_amount: Vector2 = _velocity * delta
 
 	# collide up to 10 bounces
 	for __ in 10:
@@ -39,7 +52,14 @@ func _physics_process(delta: float) -> void:
 		if not collision:
 			break
 
+		var object: CollisionObject2D = collision.get_collider() as CollisionObject2D	
+		if object and (object.collision_layer & damage_layer): # logical AND to check if any layer overlaps
+			_handle_death()
+
 		move_amount = _handle_collision(collision)
+
+		if _dead:
+			return
 		
 		charges = max_charges
 		Bounce.emit()
@@ -50,3 +70,8 @@ func _handle_collision(collision: KinematicCollision2D) -> Vector2:
 	
 	# reflect remaining velocity at surface and return it for further movement
 	return collision.get_remainder().bounce(collision.get_normal())
+
+
+func _handle_death() -> void:
+	print("DEAD")
+	_dead = true
