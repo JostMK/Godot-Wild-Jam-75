@@ -15,6 +15,7 @@ size = Vector2(1280, 256)
 offset = Vector2(500, 0)
 
 [node name="Cannon" parent="." instance=ExtResource("6_x4ju8")]
+rotation = -0.349066
 
 [node name="TestLevel" type="Node2D" parent="."]
 position = Vector2(600, 0)

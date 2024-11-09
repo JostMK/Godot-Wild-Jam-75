@@ -3,6 +3,8 @@ extends Node2D
 signal Fired(player: Player)
 
 @export var player_scene: PackedScene
+@export var rotation_speed: float = 120
+@export var rotation_bounds: Vector2 = Vector2(-45, 45)
 
 @onready var player_spawn: Node2D = %PlayerSpawn
 
@@ -16,8 +18,10 @@ func _ready() -> void:
 	_player.position = Vector2.ZERO
 	_player.rotation = 0
 
+	rotation_bounds = Vector2(deg_to_rad(rotation_bounds.x), deg_to_rad(rotation_bounds.y))
 
-func _process(_delta: float) -> void:
+
+func _process(delta: float) -> void:
 	if not _player:
 		return
 
@@ -30,3 +34,7 @@ func _process(_delta: float) -> void:
 
 		Fired.emit(_player)
 		_player = null
+
+	var rotation_input: float = Input.get_axis("Aim_Up", "Aim_Down")
+	rotate(deg_to_rad(rotation_input * rotation_speed * delta))
+	rotation = clamp(rotation, rotation_bounds.x, rotation_bounds.y)
