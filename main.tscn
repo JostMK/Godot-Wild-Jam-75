@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://duk533ajtr0cx"]
+[gd_scene load_steps=5 format=3 uid="uid://duk533ajtr0cx"]
 
 [ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="1_kpqgj"]
+[ext_resource type="PackedScene" uid="uid://dfj6a4mae85vf" path="res://scenes/camera/follow_camera.tscn" id="2_ci57k"]
 [ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_epn4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
@@ -8,31 +9,246 @@ size = Vector2(1280, 256)
 
 [node name="Main" type="Node2D"]
 
-[node name="TestLevel" type="Node2D" parent="."]
-
-[node name="Ceiling" type="StaticBody2D" parent="TestLevel"]
-position = Vector2(0, -360)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Ceiling"]
-shape = SubResource("RectangleShape2D_5nvy8")
-
-[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Ceiling"]
-self_modulate = Color(0.110587, 0.1092, 0.13, 1)
-scale = Vector2(5, 1)
-texture = ExtResource("1_kpqgj")
-
-[node name="Floor" type="StaticBody2D" parent="TestLevel"]
-position = Vector2(0, 360)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Floor"]
-shape = SubResource("RectangleShape2D_5nvy8")
-
-[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Floor"]
-self_modulate = Color(0.110587, 0.1092, 0.13, 1)
-scale = Vector2(5, 1)
-texture = ExtResource("1_kpqgj")
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="FollowCamera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_ci57k")]
+position = Vector2(-487, 0)
+offset = Vector2(487, 0)
+target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("2_epn4y")]
 position = Vector2(-487, 0)
+speed = 500.0
+
+[node name="TestLevel" type="Node2D" parent="."]
+
+[node name="Decor" type="Node2D" parent="TestLevel"]
+
+[node name="Layer0" type="Parallax2D" parent="TestLevel/Decor"]
+scroll_scale = Vector2(1.1, 1)
+scroll_offset = Vector2(-576, -324)
+repeat_size = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(956.344, 656)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(688.344, 634)
+scale = Vector2(0.838625, 0.348501)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(38.344, 32)
+scale = Vector2(0.838625, 0.348501)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D9" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(614.344, 13)
+scale = Vector2(0.838625, 0.348501)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(216.344, 661)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D6" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(339.344, -14)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D8" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(906.344, -48.2801)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(366.344, 729)
+scale = Vector2(0.559999, 1.24)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="TestLevel/Decor/Layer0"]
+self_modulate = Color(0.1725, 0.1725, 0.23, 1)
+z_index = 10
+position = Vector2(1100.34, -42.2801)
+scale = Vector2(0.559999, 1.24)
+texture = ExtResource("1_kpqgj")
+
+[node name="Layer1" type="Parallax2D" parent="TestLevel/Decor"]
+scroll_scale = Vector2(0.8, 1)
+scroll_offset = Vector2(-576, -324)
+repeat_size = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(69, 85)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(350, 584)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D6" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(462, 544)
+scale = Vector2(0.64, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(788, 141.56)
+scale = Vector2(1, 1.52)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(626, 75.5598)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D5" type="Sprite2D" parent="TestLevel/Decor/Layer1"]
+self_modulate = Color(0.3696, 0.39228, 0.42, 1)
+z_index = -10
+position = Vector2(1037, 556)
+scale = Vector2(0.560001, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Layer2" type="Parallax2D" parent="TestLevel/Decor"]
+scroll_scale = Vector2(0.5, 1)
+scroll_offset = Vector2(-576, -324)
+repeat_size = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="TestLevel/Decor/Layer2"]
+self_modulate = Color(0.5415, 0.55195, 0.57, 1)
+z_index = -20
+position = Vector2(245.5, 234)
+scale = Vector2(1.41016, 1.34375)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="TestLevel/Decor/Layer2"]
+self_modulate = Color(0.5415, 0.55195, 0.57, 1)
+z_index = -20
+position = Vector2(669, 465)
+scale = Vector2(1.41016, 1.34375)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="TestLevel/Decor/Layer2"]
+self_modulate = Color(0.5415, 0.55195, 0.57, 1)
+z_index = -20
+position = Vector2(1059, 244)
+scale = Vector2(1.41016, 1.34375)
+texture = ExtResource("1_kpqgj")
+
+[node name="Sprite2D4" type="Sprite2D" parent="TestLevel/Decor/Layer2"]
+self_modulate = Color(0.5415, 0.55195, 0.57, 1)
+z_index = -20
+position = Vector2(112, 648)
+scale = Vector2(1.41016, 1.34375)
+texture = ExtResource("1_kpqgj")
+
+[node name="Map" type="Node2D" parent="TestLevel"]
+
+[node name="Ceiling" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(0, -360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Ceiling"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Ceiling2" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(1280, -360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Ceiling2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Ceiling3" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(2560, -360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Ceiling3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Ceiling4" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(3840, -360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Ceiling4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Ceiling4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(0, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Floor"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor2" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(1280, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Floor2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor3" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(2560, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Floor3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
+
+[node name="Floor4" type="StaticBody2D" parent="TestLevel/Map"]
+position = Vector2(3834, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TestLevel/Map/Floor4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="TestLevel/Map/Floor4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("1_kpqgj")
