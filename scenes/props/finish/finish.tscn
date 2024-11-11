@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3cjokwgf82df"]
+
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="1_bs5sc"]
+[ext_resource type="Script" path="res://scenes/props/finish/finish.gd" id="1_eg4jc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwfub"]
+
+[node name="Finish" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_eg4jc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_xwfub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(0.102667, 0.77, 0, 0.513726)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("1_bs5sc")
