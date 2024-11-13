@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_released("Reflect"):
 		_player.process_mode = Node.PROCESS_MODE_INHERIT
-		_player.reparent(get_tree().root)
+		_player.reparent(get_parent())
 
 		_player.rotation = 0;
 		_player.set_direction(player_spawn.global_transform.x)

@@ -13,17 +13,18 @@ enum LevelState {
 @export var temp_scene_ref: PackedScene
 
 var _current_level: Level
+var _current_level_scene: PackedScene
 var _state: LevelState
 
-func _ready():
+func _ready() -> void:
 	# for testing
 	call_deferred("load_level", temp_scene_ref)
 
-	_state = LevelState.START
 	level_ui.StartLevel.connect(start_level)
 	
 
 func load_level(level: PackedScene) -> void:
+	_current_level_scene = level
 	_current_level = level.instantiate()
 	get_tree().root.add_child(_current_level)
 
@@ -31,8 +32,11 @@ func load_level(level: PackedScene) -> void:
 	_current_level.PlayerFinished.connect(_on_player_finished)
 	_current_level.PlayerDied.connect(_on_player_died)
 
+	follow_camera.global_position = _current_level.get_camera_start_pos()
+
 	_current_level.process_mode = Node.PROCESS_MODE_DISABLED
 
+	_state = LevelState.START
 	level_ui.set_status_text("Godot Rush")
 	level_ui.set_button_text("Start Game")
 	level_ui.show()
@@ -58,7 +62,10 @@ func prepare_retry_level() -> void:
 
 
 func prepare_restart_level() -> void:
-	get_tree().call_deferred("reload_current_scene")
+	_current_level.name = "REMOVED"
+	_current_level.queue_free()
+
+	load_level(_current_level_scene)
 
 
 func _on_player_spawned(player: Player) -> void:
