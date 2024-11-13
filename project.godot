@@ -23,7 +23,8 @@ folder_colors={
 "res://scenes/": "yellow",
 "res://scenes/levels/": "orange",
 "res://scenes/player/": "teal",
-"res://scenes/sceneries/": "red"
+"res://scenes/sceneries/": "red",
+"res://scenes/ui/": "blue"
 }
 
 [input]

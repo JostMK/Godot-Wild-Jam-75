@@ -3,6 +3,7 @@ class_name Player
 
 signal Bounce
 signal Reflect
+signal Died
 
 @export var visuals: Node2D
 
@@ -35,7 +36,7 @@ func _process(delta: float) -> void:
 	if _dead:
 		_velocity = _velocity.move_toward(Vector2.ZERO, velocity_damping * delta)
 		# rotation speed is proportional to velocity
-		var rotation_degree = lerp(0., rotation_speed, _velocity.length_squared() / (speed**2))
+		var rotation_degree = lerp(0., rotation_speed, _velocity.length_squared() / (speed ** 2))
 		visuals.rotate(deg_to_rad(rotation_degree * delta))
 		return
 
@@ -56,7 +57,7 @@ func _physics_process(delta: float) -> void:
 		if not collision:
 			break
 
-		var object: CollisionObject2D = collision.get_collider() as CollisionObject2D	
+		var object: CollisionObject2D = collision.get_collider() as CollisionObject2D
 		if object and (object.collision_layer & damage_layer): # logical AND to check if any layer overlaps
 			_handle_death()
 
@@ -77,5 +78,8 @@ func _handle_collision(collision: KinematicCollision2D) -> Vector2:
 
 
 func _handle_death() -> void:
-	print("DEAD")
+	if _dead:
+		return
+
 	_dead = true
+	Died.emit()
