@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/ui/level/level_ui.gd" id="1_77yw5"]
 
-[sub_resource type="InputEventAction" id="InputEventAction_000ex"]
+[sub_resource type="InputEventAction" id="InputEventAction_lbngg"]
 action = &"Reflect"
 
 [sub_resource type="Shortcut" id="Shortcut_36qkf"]
-events = [SubResource("InputEventAction_000ex")]
+events = [SubResource("InputEventAction_lbngg")]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3

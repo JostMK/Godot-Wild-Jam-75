@@ -30,5 +30,12 @@ func _update_visuals() -> void:
 	sprite.scale = Vector2(size.x / 256, size.y / 256)
 
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
+	var player: Player = body as Player
+	if not player:
+		return
+
+	if player.is_dead():
+		return
+
 	Finished.emit()

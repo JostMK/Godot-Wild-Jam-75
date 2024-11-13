@@ -24,6 +24,10 @@ func set_direction(direction: Vector2) -> void:
 	_velocity = direction * speed
 
 
+func is_dead() -> bool:
+	return _dead
+
+
 func _ready():
 	# needs to be disabled to use move_and_collide
 	sync_to_physics = false
