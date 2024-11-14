@@ -51,15 +51,17 @@ func start_level() -> void:
 		LevelState.REPLAY:
 			prepare_restart_level()
 
-	_current_level.process_mode = Node.PROCESS_MODE_INHERIT
-
+	# activates processing for level only in the next frame to avoid conflicts
+	_call_next_frame(func(): _current_level.process_mode = Node.PROCESS_MODE_INHERIT)
 	
+
 func prepare_retry_level() -> void:
 	follow_camera.set_target(null)
 	follow_camera.global_position = _current_level.get_camera_start_pos()
 
-	_current_level.retry()
-
+	# restart current level only in the next frame to avoid conflicts
+	_call_next_frame(func(): _current_level.retry())
+	
 
 func prepare_restart_level() -> void:
 	_current_level.name = "REMOVED"
@@ -85,3 +87,7 @@ func _on_player_died() -> void:
 	level_ui.set_status_text("Godot Died!")
 	level_ui.set_button_text("Try Again")
 	level_ui.show()
+
+
+func _call_next_frame(callable: Callable) -> void:
+	get_tree().process_frame.connect(callable, CONNECT_ONE_SHOT)

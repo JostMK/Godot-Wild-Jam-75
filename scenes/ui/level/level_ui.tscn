@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://w7g81ip8idt8"]
+[gd_scene load_steps=3 format=3 uid="uid://w7g81ip8idt8"]
 
 [ext_resource type="Script" path="res://scenes/ui/level/level_ui.gd" id="1_77yw5"]
-
-[sub_resource type="InputEventAction" id="InputEventAction_lbngg"]
-action = &"Reflect"
-
-[sub_resource type="Shortcut" id="Shortcut_36qkf"]
-events = [SubResource("InputEventAction_lbngg")]
+[ext_resource type="Script" path="res://components/shortcut.gd" id="2_kml1o"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -50,5 +45,8 @@ offset_right = 48.0
 offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
-shortcut = SubResource("Shortcut_36qkf")
 text = "Start Game"
+
+[node name="ShortcutComponent" type="Node" parent="StartButton"]
+script = ExtResource("2_kml1o")
+action = &"Reflect"
