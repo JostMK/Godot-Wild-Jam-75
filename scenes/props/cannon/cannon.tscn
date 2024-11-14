@@ -7,6 +7,7 @@
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_0tgv6")
 player_scene = ExtResource("2_xhqyx")
+rotation_speed = 101.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.140447, 0.140447, 0.140447, 1)
