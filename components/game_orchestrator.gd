@@ -77,6 +77,8 @@ func _on_player_spawned(player: Player) -> void:
 func _on_player_finished() -> void:
 	_state = LevelState.REPLAY
 
+	follow_camera.set_target(null)
+
 	level_ui.set_status_text("Congratulations!")
 	level_ui.set_button_text("Play Again")
 	level_ui.show()
