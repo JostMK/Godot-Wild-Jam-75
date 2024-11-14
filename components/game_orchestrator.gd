@@ -49,7 +49,8 @@ func start_level() -> void:
 		LevelState.RETRY:
 			prepare_retry_level()
 		LevelState.REPLAY:
-			prepare_restart_level()
+			restart_level()
+			return
 
 	# activates processing for level only in the next frame to avoid conflicts
 	_call_next_frame(func(): _current_level.process_mode = Node.PROCESS_MODE_INHERIT)
@@ -63,9 +64,10 @@ func prepare_retry_level() -> void:
 	_call_next_frame(func(): _current_level.retry())
 	
 
-func prepare_restart_level() -> void:
-	_current_level.name = "REMOVED"
+func restart_level() -> void:
+	_current_level.name = "DELETED"
 	_current_level.queue_free()
+	_current_level = null
 
 	load_level(_current_level_scene)
 
