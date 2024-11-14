@@ -4,3 +4,6 @@
 
 # IDE settings
 .vscode/
+
+# folder for building the game - artefacts get zipped and stored in 'exports/'
+.build/
