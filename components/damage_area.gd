@@ -6,7 +6,6 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-    print("BODY")
     var player = body as Player
     if not player:
         return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnm031l5h33tj"]
+[gd_scene load_steps=11 format=3 uid="uid://cnm031l5h33tj"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wq5vm"]
 [ext_resource type="PackedScene" uid="uid://b6l8u4efrjft7" path="res://scenes/props/cannon/cannon.tscn" id="2_febu2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="6_oe0ju"]
 [ext_resource type="PackedScene" uid="uid://cddoeo7hk8soa" path="res://scenes/props/laser/laser_emitter.tscn" id="7_1c258"]
 [ext_resource type="PackedScene" uid="uid://cfdc1fir2s52d" path="res://scenes/props/button/button.tscn" id="8_xul8w"]
+[ext_resource type="PackedScene" uid="uid://bpyd1m7b1kkc2" path="res://scenes/items/splitter/splitter.tscn" id="9_n2m2g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
 size = Vector2(1280, 256)
@@ -212,7 +213,7 @@ position = Vector2(931, 232)
 position = Vector2(1229, 232)
 
 [node name="Spike10" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(2765, 232)
+position = Vector2(2967, 232)
 
 [node name="Spike13" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
 position = Vector2(2326, 232)
@@ -334,3 +335,11 @@ targets = [NodePath("../../Lasers/LaserEmitter2")]
 [node name="Button2" parent="Map/Buttons" node_paths=PackedStringArray("targets") instance=ExtResource("8_xul8w")]
 position = Vector2(2785, -128)
 targets = [NodePath("../../Lasers/LaserEmitter3")]
+
+[node name="Items" type="Node2D" parent="Map"]
+
+[node name="Splitter" parent="Map/Items" instance=ExtResource("9_n2m2g")]
+position = Vector2(2324, 0)
+
+[node name="Splitter2" parent="Map/Items" instance=ExtResource("9_n2m2g")]
+position = Vector2(-163, -113)

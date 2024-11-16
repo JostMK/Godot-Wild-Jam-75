@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpyd1m7b1kkc2"]
+
+[ext_resource type="Script" path="res://scenes/items/splitter/splitter.gd" id="1_hqejg"]
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="1_kjli1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5si28"]
+size = Vector2(48, 48)
+
+[node name="Splitter" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_hqejg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5si28")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0.733333, 1, 0.592157)
+scale = Vector2(0.188, 0.188)
+texture = ExtResource("1_kjli1")

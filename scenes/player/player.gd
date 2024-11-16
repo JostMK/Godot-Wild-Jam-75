@@ -4,6 +4,7 @@ class_name Player
 signal Bounce
 signal Reflect
 signal Died
+signal Split(new_player: Player)
 
 @export var visuals: Node2D
 
@@ -36,12 +37,24 @@ func is_dead() -> bool:
 	return _dead
 
 
+func split() -> Player:
+	var clone: Player = self.duplicate()
+
+	var direction: Vector2 = _velocity.normalized()
+	direction.y *= -1
+	clone.set_direction(direction)
+	
+	get_parent().add_child(clone)
+
+	Split.emit(clone)
+	return clone
+
+
 func _ready():
 	# needs to be disabled to use move_and_collide
 	sync_to_physics = false
 
 	charges = max_charges
-	_velocity = Vector2(1, 1).normalized() * speed
 
 
 func _process(delta: float) -> void:
