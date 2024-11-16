@@ -7,12 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="5_p841d"]
 [ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="6_oe0ju"]
 [ext_resource type="PackedScene" uid="uid://cddoeo7hk8soa" path="res://scenes/props/laser/laser_emitter.tscn" id="7_1c258"]
+[ext_resource type="PackedScene" uid="uid://cfdc1fir2s52d" path="res://scenes/props/button/button.tscn" id="8_xul8w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
 size = Vector2(1280, 256)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lwji"]
-size = Vector2(64, 64)
 
 [node name="ItemLevel" type="Node2D" node_paths=PackedStringArray("player_cannon", "player_finish")]
 position = Vector2(600, 0)
@@ -330,26 +328,9 @@ position = Vector2(3161, -232)
 
 [node name="Buttons" type="Node2D" parent="Map"]
 
-[node name="Button1" type="Area2D" parent="Map/Buttons"]
-position = Vector2(1229, 104)
-collision_mask = 2
+[node name="Button1" parent="Map/Buttons" node_paths=PackedStringArray("targets") instance=ExtResource("8_xul8w")]
+targets = [NodePath("../../Lasers/LaserEmitter2")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Buttons/Button1"]
-shape = SubResource("RectangleShape2D_8lwji")
-
-[node name="Sprite2D" type="Sprite2D" parent="Map/Buttons/Button1"]
-modulate = Color(0, 0.65, 0.595833, 0.776471)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_p841d")
-
-[node name="Button2" type="Area2D" parent="Map/Buttons"]
-position = Vector2(2765, -136)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Buttons/Button2"]
-shape = SubResource("RectangleShape2D_8lwji")
-
-[node name="Sprite2D" type="Sprite2D" parent="Map/Buttons/Button2"]
-modulate = Color(0, 0.65, 0.595833, 0.776471)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_p841d")
+[node name="Button2" parent="Map/Buttons" node_paths=PackedStringArray("targets") instance=ExtResource("8_xul8w")]
+position = Vector2(2785, -128)
+targets = [NodePath("../../Lasers/LaserEmitter3")]

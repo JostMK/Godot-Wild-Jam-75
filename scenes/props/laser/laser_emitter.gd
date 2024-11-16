@@ -10,12 +10,14 @@ class_name LaserEmitter
 
 var _offset: float
 var _current_length: float
+var _active: bool
 
 func _ready():
 	raycast.target_position.y = max_length
 
 	_offset = raycast.position.y
 	_current_length = -1
+	_active = true
 
 	# create new collision shape to ensure type RectangleShape2D and make sure the resource isn't shared
 	var rect: RectangleShape2D = RectangleShape2D.new()
@@ -49,3 +51,19 @@ func _process(_delta: float) -> void:
 	collision_shape.position.y = _offset + length / 2
 
 	_current_length = length
+
+
+func toggle() -> void:
+	# collision_shape.disabled can fail when called normaly
+	call_deferred("_toggle")
+
+
+func _toggle() -> void:
+	_active = not _active
+
+	if _active:
+		sprite.show()
+		collision_shape.disabled = false
+	else:
+		sprite.hide()
+		collision_shape.disabled = true
