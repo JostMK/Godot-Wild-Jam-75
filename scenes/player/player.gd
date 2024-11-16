@@ -3,7 +3,7 @@ class_name Player
 
 signal Bounce
 signal Reflect
-signal Died
+signal Died(player: Player)
 signal Split(new_player: Player)
 
 @export var visuals: Node2D
@@ -30,7 +30,7 @@ func damage() -> void:
 		return
 
 	_dead = true
-	Died.emit()
+	Died.emit(self)
 
 
 func is_dead() -> bool:

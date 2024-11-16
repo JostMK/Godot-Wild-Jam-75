@@ -31,6 +31,7 @@ func load_level(level: PackedScene) -> void:
 	_current_level.PlayerSpawned.connect(_on_player_spawned)
 	_current_level.PlayerFinished.connect(_on_player_finished)
 	_current_level.PlayerDied.connect(_on_player_died)
+	_current_level.PlayerChanged.connect(follow_camera.set_target)
 
 	follow_camera.global_position = _current_level.get_camera_start_pos()
 
