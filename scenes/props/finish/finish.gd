@@ -28,7 +28,11 @@ func _process(delta: float) -> void:
 	if not _player:
 		return
 	
+	if _player.is_dead():
+		return
+	
 	_player.global_position = lerp(_player.global_position, global_position, delta / animation_time)
+
 
 func _update_visuals() -> void:
 	if not collision_shape or not sprite:
