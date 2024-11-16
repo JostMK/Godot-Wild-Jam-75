@@ -1,0 +1,355 @@
+[gd_scene load_steps=10 format=3 uid="uid://cnm031l5h33tj"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wq5vm"]
+[ext_resource type="PackedScene" uid="uid://b6l8u4efrjft7" path="res://scenes/props/cannon/cannon.tscn" id="2_febu2"]
+[ext_resource type="PackedScene" uid="uid://3cjokwgf82df" path="res://scenes/props/finish/finish.tscn" id="3_s01xc"]
+[ext_resource type="PackedScene" uid="uid://y2cad83txkic" path="res://scenes/sceneries/blocky_scenery.tscn" id="4_iumuw"]
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="5_p841d"]
+[ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="6_oe0ju"]
+[ext_resource type="PackedScene" uid="uid://cddoeo7hk8soa" path="res://scenes/props/laser/laser_emitter.tscn" id="7_1c258"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
+size = Vector2(1280, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lwji"]
+size = Vector2(64, 64)
+
+[node name="ItemLevel" type="Node2D" node_paths=PackedStringArray("player_cannon", "player_finish")]
+position = Vector2(600, 0)
+script = ExtResource("1_wq5vm")
+player_cannon = NodePath("Cannon")
+player_finish = NodePath("Finish")
+
+[node name="Cannon" parent="." instance=ExtResource("2_febu2")]
+position = Vector2(-600, 0)
+rotation = -0.349066
+
+[node name="Finish" parent="." instance=ExtResource("3_s01xc")]
+position = Vector2(3389, 0)
+size = Vector2(200, 464)
+
+[node name="BlockyScenery" parent="." instance=ExtResource("4_iumuw")]
+
+[node name="Map" type="Node2D" parent="."]
+
+[node name="Ceiling" type="Node2D" parent="Map"]
+
+[node name="Ceiling1" type="StaticBody2D" parent="Map/Ceiling"]
+position = Vector2(0, -360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Ceiling/Ceiling1"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Ceiling/Ceiling1"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Ceiling2" type="StaticBody2D" parent="Map/Ceiling"]
+position = Vector2(1280, -360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Ceiling/Ceiling2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Ceiling/Ceiling2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Ceiling3" type="StaticBody2D" parent="Map/Ceiling"]
+position = Vector2(2560, -360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Ceiling/Ceiling3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Ceiling/Ceiling3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Ceiling4" type="StaticBody2D" parent="Map/Ceiling"]
+position = Vector2(3840, -360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Ceiling/Ceiling4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Ceiling/Ceiling4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Ceiling5" type="StaticBody2D" parent="Map/Ceiling"]
+position = Vector2(-1280, -360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Ceiling/Ceiling5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Ceiling/Ceiling5"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Floor" type="Node2D" parent="Map"]
+
+[node name="Floor1" type="StaticBody2D" parent="Map/Floor"]
+position = Vector2(0, 360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floor/Floor1"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Floor/Floor1"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Floor2" type="StaticBody2D" parent="Map/Floor"]
+position = Vector2(1280, 360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floor/Floor2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Floor/Floor2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Floor3" type="StaticBody2D" parent="Map/Floor"]
+position = Vector2(2560, 360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floor/Floor3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Floor/Floor3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Floor4" type="StaticBody2D" parent="Map/Floor"]
+position = Vector2(3840, 360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floor/Floor4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Floor/Floor4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Floor5" type="StaticBody2D" parent="Map/Floor"]
+position = Vector2(-1280, 360)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Floor/Floor5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Floor/Floor5"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Spikes" type="Node2D" parent="Map"]
+
+[node name="Spike" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+rotation = -1.5708
+
+[node name="Spike6" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(506, 208)
+rotation = -1.5708
+
+[node name="Spike11" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(1726, 208)
+rotation = -1.5708
+
+[node name="Spike12" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(1726, -208)
+rotation = -1.5708
+
+[node name="Spike21" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(3007, -16)
+rotation = 1.5708
+
+[node name="Spike7" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2688, -16)
+rotation = -1.5708
+
+[node name="Spike16" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2879, -208)
+rotation = -1.5708
+
+[node name="Spike17" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2879, -160)
+rotation = -1.5708
+
+[node name="Spike18" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2879, -112)
+rotation = -1.5708
+
+[node name="Spike36" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2879, -64)
+rotation = -1.5708
+
+[node name="Spike8" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(931, 232)
+
+[node name="Spike9" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(1229, 232)
+
+[node name="Spike10" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2765, 232)
+
+[node name="Spike13" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2326, 232)
+
+[node name="Spike3" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(603, -232)
+rotation = -3.14159
+
+[node name="Spike4" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(665, -232)
+rotation = -3.14159
+
+[node name="Spike5" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(730, -232)
+rotation = -3.14159
+
+[node name="Blocks" type="Node2D" parent="Map"]
+
+[node name="Blocks2" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(160, 0)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks2"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks2"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Blocks4" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(666, 208)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks4"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks4"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Blocks5" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(1886, 208)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks5"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks5"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Blocks7" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(1886, -208)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks7"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks7"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Blocks3" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(2847, -16)
+scale = Vector2(0.25, 0.188)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks3"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks3"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Blocks6" type="StaticBody2D" parent="Map/Blocks"]
+position = Vector2(2943, -136)
+scale = Vector2(0.1, 0.75)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Blocks/Blocks6"]
+shape = SubResource("RectangleShape2D_5nvy8")
+
+[node name="CeilingSprite2D" type="Sprite2D" parent="Map/Blocks/Blocks6"]
+self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
+scale = Vector2(5, 1)
+texture = ExtResource("5_p841d")
+
+[node name="Lasers" type="Node2D" parent="Map"]
+
+[node name="LaserEmitter" parent="Map/Lasers" instance=ExtResource("7_1c258")]
+position = Vector2(159, -232)
+
+[node name="LaserEmitter2" parent="Map/Lasers" instance=ExtResource("7_1c258")]
+position = Vector2(1446, -232)
+
+[node name="LaserEmitter3" parent="Map/Lasers" instance=ExtResource("7_1c258")]
+position = Vector2(3161, -232)
+
+[node name="Buttons" type="Node2D" parent="Map"]
+
+[node name="Button1" type="Area2D" parent="Map/Buttons"]
+position = Vector2(1229, 104)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Buttons/Button1"]
+shape = SubResource("RectangleShape2D_8lwji")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Buttons/Button1"]
+modulate = Color(0, 0.65, 0.595833, 0.776471)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_p841d")
+
+[node name="Button2" type="Area2D" parent="Map/Buttons"]
+position = Vector2(2765, -136)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Buttons/Button2"]
+shape = SubResource("RectangleShape2D_8lwji")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map/Buttons/Button2"]
+modulate = Color(0, 0.65, 0.595833, 0.776471)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_p841d")

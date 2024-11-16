@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cddoeo7hk8soa"]
+
+[ext_resource type="Script" path="res://scenes/props/laser/laser_emitter.gd" id="1_ulyr4"]
+[ext_resource type="Script" path="res://components/damage_area.gd" id="1_uuolf"]
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="3_dd7dn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au6io"]
+
+[node name="LaserEmitter" type="Node2D"]
+script = ExtResource("1_ulyr4")
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_uuolf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+unique_name_in_owner = true
+position = Vector2(0, 128)
+shape = SubResource("RectangleShape2D_au6io")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 9)
+target_position = Vector2(0, 1000)
+
+[node name="LaserSprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+self_modulate = Color(1, 0, 0.0833335, 0.796078)
+position = Vector2(0, 128)
+scale = Vector2(0.08, 1)
+texture = ExtResource("3_dd7dn")
+
+[node name="EmitterSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.16, 0.1168, 0.1168, 1)
+position = Vector2(0, 5)
+scale = Vector2(0.1, 0.04)
+texture = ExtResource("3_dd7dn")

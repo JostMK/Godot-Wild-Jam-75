@@ -24,6 +24,14 @@ func set_direction(direction: Vector2) -> void:
 	_velocity = direction * speed
 
 
+func damage() -> void:
+	if _dead:
+		return
+
+	_dead = true
+	Died.emit()
+
+
 func is_dead() -> bool:
 	return _dead
 
@@ -63,7 +71,7 @@ func _physics_process(delta: float) -> void:
 
 		var object: CollisionObject2D = collision.get_collider() as CollisionObject2D
 		if object and (object.collision_layer & damage_layer): # logical AND to check if any layer overlaps
-			_handle_death()
+			damage()
 
 		move_amount = _handle_collision(collision)
 
@@ -79,11 +87,3 @@ func _handle_collision(collision: KinematicCollision2D) -> Vector2:
 	
 	# reflect remaining velocity at surface and return it for further movement
 	return collision.get_remainder().bounce(collision.get_normal())
-
-
-func _handle_death() -> void:
-	if _dead:
-		return
-
-	_dead = true
-	Died.emit()
