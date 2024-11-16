@@ -342,4 +342,4 @@ targets = [NodePath("../../Lasers/LaserEmitter3")]
 position = Vector2(2324, 0)
 
 [node name="Splitter2" parent="Map/Items" instance=ExtResource("9_n2m2g")]
-position = Vector2(-163, -113)
+position = Vector2(-163, 0)

@@ -38,10 +38,16 @@ func is_dead() -> bool:
 
 
 func split() -> Player:
+	# edge case of (almost) horizontal movement	
+	if abs(_velocity.angle()) < deg_to_rad(5):
+		# splits the players with both moving in 45 degree angle afterwards
+		set_direction(Vector2(1, 1).normalized())
+
 	var clone: Player = self.duplicate()
 
 	var direction: Vector2 = _velocity.normalized()
 	direction.y *= -1
+
 	clone.set_direction(direction)
 	
 	get_parent().add_child(clone)
