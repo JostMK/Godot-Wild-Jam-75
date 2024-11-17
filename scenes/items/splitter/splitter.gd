@@ -16,6 +16,9 @@ func _split(body: Node2D) -> void:
 	if not player:
 		return
 
+	if player.is_dead():
+		return
+
 	set_deferred("monitoring", false)
 	hide()
 	

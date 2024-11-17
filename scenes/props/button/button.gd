@@ -9,9 +9,17 @@ func _ready() -> void:
 		if not targets[i].has_method("toggle"):
 			targets.remove_at(i)
 	
-	body_entered.connect(_toggle.unbind(1))
+	body_entered.connect(_toggle)
 	
 
-func _toggle() -> void:
+func _toggle(body: Node2D) -> void:
+	var player: Player = body as Player
+
+	if not player:
+		return
+
+	if player.is_dead():
+		return
+
 	for target in targets:
 		target.toggle()
