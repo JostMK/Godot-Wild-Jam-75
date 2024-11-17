@@ -21,6 +21,7 @@ func _ready() -> void:
 	call_deferred("load_level", temp_scene_ref)
 
 	level_ui.StartLevel.connect(start_level)
+	level_ui.call_deferred("toggle_stats_text", false)
 	
 
 func load_level(level: PackedScene) -> void:
@@ -68,6 +69,8 @@ func restart_level() -> void:
 	_current_level.queue_free()
 	_current_level = null
 
+	level_ui.toggle_stats_text(false)
+
 	load_level(_current_level_scene)
 
 
@@ -82,6 +85,10 @@ func _on_player_finished() -> void:
 
 	level_ui.set_status_text("Congratulations!")
 	level_ui.set_button_text("Play Again")
+	
+	level_ui.set_stats_text(_current_level.get_reflect_stat())
+	level_ui.toggle_stats_text(true)
+
 	level_ui.show()
 
 
