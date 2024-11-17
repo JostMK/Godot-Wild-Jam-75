@@ -5,12 +5,18 @@ func _ready() -> void:
 	body_entered.connect(_split)
 
 
-func _split(body: Node2D):
+func reset() -> void:
+	set_deferred("monitoring", true)
+	show()
+
+
+func _split(body: Node2D) -> void:
 	var player: Player = body as Player
 
 	if not player:
 		return
 
 	set_deferred("monitoring", false)
+	hide()
+	
 	player.call_deferred("split")
-	queue_free()

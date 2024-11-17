@@ -13,11 +13,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
 size = Vector2(1280, 256)
 
-[node name="ItemLevel" type="Node2D" node_paths=PackedStringArray("player_cannon", "player_finish")]
+[node name="ItemLevel" type="Node2D" node_paths=PackedStringArray("player_cannon", "player_finish", "reset_nodes")]
 position = Vector2(600, 0)
 script = ExtResource("1_wq5vm")
 player_cannon = NodePath("Cannon")
 player_finish = NodePath("Finish")
+reset_nodes = [NodePath("Map/Lasers/LaserEmitter"), NodePath("Map/Lasers/LaserEmitter2"), NodePath("Map/Lasers/LaserEmitter3"), NodePath("Map/Items/Splitter"), NodePath("Map/Items/Splitter2")]
 
 [node name="Cannon" parent="." instance=ExtResource("2_febu2")]
 position = Vector2(-600, 0)
@@ -319,7 +320,7 @@ texture = ExtResource("5_p841d")
 [node name="Lasers" type="Node2D" parent="Map"]
 
 [node name="LaserEmitter" parent="Map/Lasers" instance=ExtResource("7_1c258")]
-position = Vector2(159, -232)
+position = Vector2(160, -232)
 
 [node name="LaserEmitter2" parent="Map/Lasers" instance=ExtResource("7_1c258")]
 position = Vector2(1446, -232)

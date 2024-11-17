@@ -35,8 +35,6 @@ func load_level(level: PackedScene) -> void:
 
 	follow_camera.global_position = _current_level.get_camera_start_pos()
 
-	_current_level.process_mode = Node.PROCESS_MODE_DISABLED
-
 	_state = LevelState.START
 	level_ui.set_status_text("Godot Rush")
 	level_ui.set_button_text("Start Game")
@@ -54,7 +52,7 @@ func start_level() -> void:
 			return
 
 	# activates processing for level only in the next frame to avoid conflicts
-	_call_next_frame(func(): _current_level.process_mode = Node.PROCESS_MODE_INHERIT)
+	_call_next_frame(_current_level.start)
 	
 
 func prepare_retry_level() -> void:
@@ -62,7 +60,7 @@ func prepare_retry_level() -> void:
 	follow_camera.global_position = _current_level.get_camera_start_pos()
 
 	# restart current level only in the next frame to avoid conflicts
-	_call_next_frame(func(): _current_level.retry())
+	_call_next_frame(_current_level.retry)
 	
 
 func restart_level() -> void:

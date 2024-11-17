@@ -9,6 +9,8 @@ signal PlayerChanged(player: Player)
 @export var player_cannon: PlayerCannon
 @export var player_finish: Finish
 
+@export var reset_nodes: Array[Node]
+
 var _players: Dictionary = {}
 
 func _ready() -> void:
@@ -17,14 +19,27 @@ func _ready() -> void:
 	player_cannon.Fired.connect(_on_player_spawned)
 	player_finish.Finished.connect(PlayerFinished.emit)
 
+	# remove all nodes that do not have the 'reset' method
+	for i in range(reset_nodes.size() - 1, -1, -1):
+		if not reset_nodes[i].has_method("reset"):
+			reset_nodes.remove_at(i)
+
 
 func get_camera_start_pos() -> Vector2:
 	return player_cannon.global_position
 
 
+func start() -> void:
+	player_cannon.activate()
+
+
 func retry() -> void:
 	_players.clear()
 	player_cannon.setup()
+	player_cannon.activate()
+
+	for node in reset_nodes:
+		node.reset()
 	
 
 func _on_player_spawned(player: Player) -> void:

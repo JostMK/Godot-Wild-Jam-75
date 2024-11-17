@@ -10,6 +10,7 @@ signal Fired(player: Player)
 @onready var player_spawn: Node2D = %PlayerSpawn
 
 var _player: Player
+var _active: bool
 
 func _ready() -> void:
 	rotation_bounds = Vector2(deg_to_rad(rotation_bounds.x), deg_to_rad(rotation_bounds.y))
@@ -17,6 +18,8 @@ func _ready() -> void:
 
 
 func setup() -> void:
+	_active = false
+
 	_player = player_scene.instantiate() as Player
 	_player.process_mode = Node.PROCESS_MODE_DISABLED
 	
@@ -24,8 +27,14 @@ func setup() -> void:
 	_player.position = Vector2.ZERO
 	_player.rotation = 0
 
+func activate() -> void:
+	_active = true
+
 
 func _process(delta: float) -> void:
+	if not _active:
+		return
+
 	if not _player:
 		return
 
@@ -38,6 +47,7 @@ func _process(delta: float) -> void:
 
 		Fired.emit(_player)
 		_player = null
+		_active = false
 
 	var rotation_input: float = Input.get_axis("Aim_Up", "Aim_Down")
 	rotate(deg_to_rad(rotation_input * rotation_speed * delta))

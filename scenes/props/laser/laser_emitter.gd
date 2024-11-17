@@ -24,9 +24,17 @@ func _ready():
 	rect.size.x = sprite.texture.get_size().x * sprite.scale.x
 	collision_shape.shape = rect
 
-	# TODO: remove; needed because of level freeze befor start
-	raycast.force_raycast_update()
-	_process(0)
+
+func reset() -> void:
+	_active = true
+	call_deferred("_update_laser")
+	
+
+func toggle() -> void:
+	# collision_shape.disabled can fail when called normaly
+	_active = not _active
+	call_deferred("_update_laser")
+
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -53,14 +61,7 @@ func _process(_delta: float) -> void:
 	_current_length = length
 
 
-func toggle() -> void:
-	# collision_shape.disabled can fail when called normaly
-	call_deferred("_toggle")
-
-
-func _toggle() -> void:
-	_active = not _active
-
+func _update_laser() -> void:
 	if _active:
 		sprite.show()
 		collision_shape.disabled = false
