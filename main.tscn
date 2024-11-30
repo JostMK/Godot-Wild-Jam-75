@@ -12,7 +12,7 @@
 script = ExtResource("1_ba1j7")
 level_ui = NodePath("../CanvasLayer/LevelUI")
 follow_camera = NodePath("../FollowCamera")
-levels = Array[PackedScene]([ExtResource("2_xs6ok"), ExtResource("2_kdpc2")])
+levels = Array[PackedScene]([ExtResource("2_kdpc2"), ExtResource("2_xs6ok")])
 
 [node name="FollowCamera" parent="." instance=ExtResource("2_ci57k")]
 offset = Vector2(500, 0)

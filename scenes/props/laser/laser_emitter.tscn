@@ -1,39 +1,228 @@
-[gd_scene load_steps=5 format=3 uid="uid://cddoeo7hk8soa"]
+[gd_scene load_steps=24 format=3 uid="uid://cddoeo7hk8soa"]
 
 [ext_resource type="Script" path="res://scenes/props/laser/laser_emitter.gd" id="1_ulyr4"]
 [ext_resource type="Script" path="res://components/damage_area.gd" id="1_uuolf"]
-[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="3_dd7dn"]
+[ext_resource type="Texture2D" uid="uid://btfnobkc241aa" path="res://assets/sprites/laser_beam.svg" id="3_eef70"]
+[ext_resource type="Texture2D" uid="uid://n3mrskk41eyb" path="res://assets/sprites/laser_effects.svg" id="4_1njyq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_it85s"]
-size = Vector2(20.48, 1000)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o101a"]
+size = Vector2(24, 1000)
+
+[sub_resource type="Animation" id="Animation_25gf5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 192, 4000)]
+}
+
+[sub_resource type="Animation" id="Animation_hih13"]
+resource_name = "flow"
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 192, 4000), Rect2(0, -768, 192, 4000)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_abigc"]
+_data = {
+"RESET": SubResource("Animation_25gf5"),
+"flow": SubResource("Animation_hih13")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcxqk"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrxdq"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk2cc"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdi5w"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wox0i"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67dr1"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(1152, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm6iw"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(1344, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a815i"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j6fty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcxqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrxdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk2cc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdi5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wox0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67dr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm6iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrxdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67dr1")
+}],
+"loop": true,
+"name": &"active",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a815i")
+}],
+"loop": true,
+"name": &"off",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cskm"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0o7k0"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_args6"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hurl7"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_diiyy"]
+atlas = ExtResource("4_1njyq")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0rqsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cskm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o7k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_args6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_diiyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0o7k0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hurl7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_args6")
+}],
+"loop": true,
+"name": &"active",
+"speed": 7.0
+}]
 
 [node name="LaserEmitter" type="Node2D"]
 script = ExtResource("1_ulyr4")
 
 [node name="DamageArea" type="Area2D" parent="."]
+z_index = 1000
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_uuolf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 unique_name_in_owner = true
-position = Vector2(0, 509)
-shape = SubResource("RectangleShape2D_it85s")
+position = Vector2(0, 508)
+shape = SubResource("RectangleShape2D_o101a")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 9)
+z_index = 1000
+position = Vector2(0, 8)
 target_position = Vector2(0, 1000)
 
-[node name="LaserSprite2D" type="Sprite2D" parent="."]
-unique_name_in_owner = true
-self_modulate = Color(1, 0, 0.0833335, 0.796078)
-position = Vector2(0, 509)
-scale = Vector2(0.08, 3.90625)
-texture = ExtResource("3_dd7dn")
+[node name="Visuals" type="Node2D" parent="."]
 
-[node name="EmitterSprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.16, 0.1168, 0.1168, 1)
-position = Vector2(0, 5)
-scale = Vector2(0.1, 0.04)
-texture = ExtResource("3_dd7dn")
+[node name="LaserSpriteAnimator" type="AnimationPlayer" parent="Visuals"]
+root_node = NodePath("../LaserSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_abigc")
+}
+autoplay = "flow"
+
+[node name="LaserSprite2D" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+texture_repeat = 2
+position = Vector2(0, 508)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_eef70")
+region_enabled = true
+region_rect = Rect2(0, 0, 192, 4000)
+
+[node name="EmitterSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+position = Vector2(0, 24)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_j6fty")
+animation = &"active"
+autoplay = "active"
+
+[node name="ImpactSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_0rqsy")
+animation = &"active"
+autoplay = "active"
+offset = Vector2(0, -96)

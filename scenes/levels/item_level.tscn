@@ -29,6 +29,7 @@ position = Vector2(3389, 0)
 size = Vector2(200, 464)
 
 [node name="BlockyScenery" parent="." instance=ExtResource("4_iumuw")]
+visible = false
 
 [node name="Map" type="Node2D" parent="."]
 
@@ -166,64 +167,60 @@ self_modulate = Color(0.228529, 0.226222, 0.261035, 1)
 scale = Vector2(5, 1)
 texture = ExtResource("5_p841d")
 
-[node name="Spikes" type="Node2D" parent="Map"]
+[node name="Saws" type="Node2D" parent="Map"]
 
-[node name="Spike" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 rotation = -1.5708
 
-[node name="Spike6" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw2" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(506, 208)
 rotation = -1.5708
 
-[node name="Spike11" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw3" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(1726, 208)
 rotation = -1.5708
 
-[node name="Spike12" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw4" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(1726, -208)
 rotation = -1.5708
 
-[node name="Spike21" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(3007, -16)
-rotation = 1.5708
-
-[node name="Spike7" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw5" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2688, -16)
 rotation = -1.5708
 
-[node name="Spike17" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw6" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2879, -135)
 rotation = -1.5708
 
-[node name="Spike36" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw7" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2879, -64)
 rotation = -1.5708
 
-[node name="Spike8" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw8" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(931, 232)
 
-[node name="Spike9" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw9" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(1229, 232)
 
-[node name="Spike16" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw10" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2879, -208)
 rotation = -1.5708
 
-[node name="Spike10" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw11" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2967, 232)
 
-[node name="Spike13" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw12" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(2326, 232)
 
-[node name="Spike3" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw13" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(603, -232)
 rotation = -3.14159
 
-[node name="Spike5" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw14" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(730, -232)
 rotation = -3.14159
 
-[node name="Spike4" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+[node name="Saw15" parent="Map/Saws" instance=ExtResource("6_oe0ju")]
 position = Vector2(665, -232)
 rotation = -3.14159
 
