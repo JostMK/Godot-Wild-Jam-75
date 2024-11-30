@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3cjokwgf82df" path="res://scenes/props/finish/finish.tscn" id="3_4et4u"]
 [ext_resource type="PackedScene" uid="uid://y2cad83txkic" path="res://scenes/sceneries/blocky_scenery.tscn" id="4_2gdry"]
 [ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="5_csr5f"]
-[ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="6_lrsuj"]
+[ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/saw/saw.tscn" id="6_lrsuj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5nvy8"]
 size = Vector2(1280, 256)
@@ -178,133 +178,130 @@ texture = ExtResource("5_csr5f")
 
 [node name="Spikes" type="Node2D" parent="Map"]
 
-[node name="Spike" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw27" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 rotation = -1.5708
 
-[node name="Spike6" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw28" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(497, -112)
 rotation = -1.5708
 
-[node name="Spike26" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw26" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3010, 168)
 rotation = -1.5708
 
-[node name="Spike15" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw25" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(657, -112)
 rotation = 1.5708
 
-[node name="Spike21" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw24" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2224, 0)
 rotation = 1.5708
 
-[node name="Spike22" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw23" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2227, 209)
 rotation = 1.5708
 
-[node name="Spike7" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw29" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(1905, 0)
 rotation = -1.5708
 
-[node name="Spike14" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw22" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(1907, 209)
 rotation = -1.5708
 
-[node name="Spike11" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw21" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(902, 45.064)
 rotation = -1.5708
 
-[node name="Spike16" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw20" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(1619, -208)
 rotation = -1.5708
 
-[node name="Spike17" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(1619, -160)
-rotation = -1.5708
-
-[node name="Spike18" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(1619, -112)
-rotation = -1.5708
-
-[node name="Spike27" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw17" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3534, 112)
 rotation = -1.5708
 
-[node name="Spike28" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(3534, 160)
-rotation = -1.5708
-
-[node name="Spike29" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw15" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3534, 208)
 rotation = -1.5708
 
-[node name="Spike30" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw14" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3534, -208)
 rotation = -1.5708
 
-[node name="Spike31" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(3534, -160)
-rotation = -1.5708
-
-[node name="Spike32" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw12" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3534, -112)
 rotation = -1.5708
 
-[node name="Spike2" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw30" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(-190, 232)
 
-[node name="Spike8" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(931, 232)
+[node name="Saw31" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(902, 232)
 
-[node name="Spike23" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw11" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2455, 232)
 
-[node name="Spike24" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw10" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2632, 232)
 
-[node name="Spike25" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw9" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2791, 232)
 
-[node name="Spike33" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(3706, 87)
-
-[node name="Spike34" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw7" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(4066, 87)
 
-[node name="Spike12" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(1126, 22)
+[node name="Saw6" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(1149, 21)
 
-[node name="Spike9" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(1229, 232)
+[node name="Saw18" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(1619, -112)
+rotation = -1.5708
 
-[node name="Spike10" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw32" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(1222, 232)
+
+[node name="Saw5" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(1499, 232)
 
-[node name="Spike3" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw33" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(213, -232)
 rotation = -3.14159
 
-[node name="Spike4" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(275, -232)
-rotation = -3.14159
-
-[node name="Spike19" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw4" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2491, -232)
 rotation = -3.14159
 
-[node name="Spike20" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw3" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(2553, -232)
 rotation = -3.14159
 
-[node name="Spike35" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw2" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(3878, -88)
 rotation = -3.14159
 
-[node name="Spike5" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+[node name="Saw13" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(3534, -160)
+rotation = -1.5708
+
+[node name="Saw34" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
 position = Vector2(340, -232)
 rotation = -3.14159
 
-[node name="Spike13" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
-position = Vector2(1052, 69)
+[node name="Saw19" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(1619, -160)
+rotation = -1.5708
+
+[node name="Saw16" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(3534, 160)
+rotation = -1.5708
+
+[node name="Saw" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(1222, 45)
+rotation = -3.14159
+
+[node name="Saw35" parent="Map/Spikes" instance=ExtResource("6_lrsuj")]
+position = Vector2(275, -232)
 rotation = -3.14159
 
 [node name="Blocks" type="Node2D" parent="Map"]

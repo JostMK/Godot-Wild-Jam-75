@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://3cjokwgf82df" path="res://scenes/props/finish/finish.tscn" id="3_s01xc"]
 [ext_resource type="PackedScene" uid="uid://y2cad83txkic" path="res://scenes/sceneries/blocky_scenery.tscn" id="4_iumuw"]
 [ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="5_p841d"]
-[ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/spike/spike.tscn" id="6_oe0ju"]
+[ext_resource type="PackedScene" uid="uid://dgnw7qggtji6i" path="res://scenes/props/saw/saw.tscn" id="6_oe0ju"]
 [ext_resource type="PackedScene" uid="uid://cddoeo7hk8soa" path="res://scenes/props/laser/laser_emitter.tscn" id="7_1c258"]
 [ext_resource type="PackedScene" uid="uid://cfdc1fir2s52d" path="res://scenes/props/button/button.tscn" id="8_xul8w"]
 [ext_resource type="PackedScene" uid="uid://bpyd1m7b1kkc2" path="res://scenes/items/splitter/splitter.tscn" id="9_n2m2g"]
@@ -191,16 +191,8 @@ rotation = 1.5708
 position = Vector2(2688, -16)
 rotation = -1.5708
 
-[node name="Spike16" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(2879, -208)
-rotation = -1.5708
-
 [node name="Spike17" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(2879, -160)
-rotation = -1.5708
-
-[node name="Spike18" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(2879, -112)
+position = Vector2(2879, -135)
 rotation = -1.5708
 
 [node name="Spike36" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
@@ -213,6 +205,10 @@ position = Vector2(931, 232)
 [node name="Spike9" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
 position = Vector2(1229, 232)
 
+[node name="Spike16" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(2879, -208)
+rotation = -1.5708
+
 [node name="Spike10" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
 position = Vector2(2967, 232)
 
@@ -223,12 +219,12 @@ position = Vector2(2326, 232)
 position = Vector2(603, -232)
 rotation = -3.14159
 
-[node name="Spike4" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
-position = Vector2(665, -232)
-rotation = -3.14159
-
 [node name="Spike5" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
 position = Vector2(730, -232)
+rotation = -3.14159
+
+[node name="Spike4" parent="Map/Spikes" instance=ExtResource("6_oe0ju")]
+position = Vector2(665, -232)
 rotation = -3.14159
 
 [node name="Blocks" type="Node2D" parent="Map"]
