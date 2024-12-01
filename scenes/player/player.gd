@@ -12,7 +12,6 @@ signal Split(new_player: Player)
 @export var max_charges: int = 1
 
 @export_category("Death Settings")
-@export_flags_2d_physics var damage_layer: int
 @export var velocity_damping: float
 @export var rotation_speed: float
 
@@ -87,10 +86,6 @@ func _physics_process(delta: float) -> void:
 
 		if not collision:
 			break
-
-		var object: CollisionObject2D = collision.get_collider() as CollisionObject2D
-		if object and (object.collision_layer & damage_layer): # logical AND to check if any layer overlaps
-			damage()
 
 		move_amount = _handle_collision(collision)
 

@@ -2,10 +2,15 @@
 extends Area2D
 class_name DamageArea
 
+const DANGER_LAYER: int = 4
+const PLAYER_LAYER: int = 2
+
 func _ready() -> void:
 	# to make sure collision shapes always get drawn on top when debugging
-	self.z_index = 1000
-
+	z_index = 1000
+	collision_layer = DANGER_LAYER
+	collision_mask = PLAYER_LAYER
+	
 	if Engine.is_editor_hint():
 		return
 
