@@ -18,13 +18,14 @@ player_finish = NodePath("Finish")
 
 [node name="Cannon" parent="." instance=ExtResource("2_6eu1r")]
 position = Vector2(-600, 0)
-rotation = -0.349066
+start_rotation = -20.0
 
 [node name="Finish" parent="." instance=ExtResource("3_4et4u")]
 position = Vector2(4500, 0)
 size = Vector2(200, 464)
 
 [node name="BlockyScenery" parent="." instance=ExtResource("4_2gdry")]
+visible = false
 
 [node name="Map" type="Node2D" parent="."]
 

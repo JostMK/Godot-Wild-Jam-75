@@ -22,7 +22,6 @@ reset_nodes = [NodePath("Map/Lasers/LaserEmitter"), NodePath("Map/Lasers/LaserEm
 
 [node name="Cannon" parent="." instance=ExtResource("2_febu2")]
 position = Vector2(-600, 0)
-rotation = -0.349066
 
 [node name="Finish" parent="." instance=ExtResource("3_s01xc")]
 position = Vector2(3389, 0)

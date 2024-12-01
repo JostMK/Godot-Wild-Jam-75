@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6l8u4efrjft7"]
 
 [ext_resource type="Script" path="res://scenes/props/cannon/cannon.gd" id="1_0tgv6"]
-[ext_resource type="Texture2D" uid="uid://br0cnx64tbkx7" path="res://assets/sprites/canon.svg" id="1_r4otj"]
+[ext_resource type="Texture2D" uid="uid://br0cnx64tbkx7" path="res://assets/sprites/cannon.svg" id="1_r4otj"]
 [ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_xhqyx"]
 
 [node name="Cannon" type="Node2D"]
@@ -9,12 +9,26 @@ script = ExtResource("1_0tgv6")
 player_scene = ExtResource("2_xhqyx")
 rotation_speed = 101.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.140447, 0.140447, 0.140447, 1)
-z_index = 5
-position = Vector2(32, 0)
-texture = ExtResource("1_r4otj")
+[node name="Visuals" type="Node2D" parent="."]
 
-[node name="PlayerSpawn" type="Marker2D" parent="."]
+[node name="CannonAnchor" type="Node2D" parent="Visuals"]
 unique_name_in_owner = true
-position = Vector2(93, 0)
+
+[node name="CannonSprite2D" type="Sprite2D" parent="Visuals/CannonAnchor"]
+z_index = 20
+position = Vector2(96, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_r4otj")
+region_enabled = true
+region_rect = Rect2(768, 0, 768, 768)
+
+[node name="PlayerSpawn" type="Marker2D" parent="Visuals/CannonAnchor"]
+unique_name_in_owner = true
+position = Vector2(157, 0)
+
+[node name="EmplacementSprite2D" type="Sprite2D" parent="Visuals"]
+z_index = 20
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_r4otj")
+region_enabled = true
+region_rect = Rect2(0, 0, 768, 768)
