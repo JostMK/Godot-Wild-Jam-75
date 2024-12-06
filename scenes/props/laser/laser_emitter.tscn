@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://btfnobkc241aa" path="res://assets/sprites/laser_beam.svg" id="3_eef70"]
 [ext_resource type="Texture2D" uid="uid://n3mrskk41eyb" path="res://assets/sprites/laser_effects.svg" id="4_1njyq"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhaod"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swxfd"]
 size = Vector2(24, 1000)
 
 [sub_resource type="Animation" id="Animation_25gf5"]
@@ -185,7 +185,7 @@ script = ExtResource("1_uuolf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 unique_name_in_owner = true
 position = Vector2(0, 508)
-shape = SubResource("RectangleShape2D_rhaod")
+shape = SubResource("RectangleShape2D_swxfd")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true
@@ -218,6 +218,7 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_j6fty")
 animation = &"active"
 autoplay = "active"
+frame_progress = 0.180857
 
 [node name="ImpactSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 unique_name_in_owner = true
@@ -226,4 +227,5 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0rqsy")
 animation = &"active"
 autoplay = "active"
+frame_progress = 0.180857
 offset = Vector2(0, -96)
