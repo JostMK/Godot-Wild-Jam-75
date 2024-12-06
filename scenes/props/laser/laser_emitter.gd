@@ -1,4 +1,3 @@
-@tool
 extends Node2D
 class_name LaserEmitter
 
@@ -49,10 +48,6 @@ func toggle() -> void:
 
 
 func _process(_delta: float) -> void:
-	# dirty fix for raycasting in editor/tool mode
-	if Engine.is_editor_hint():
-		raycast.force_raycast_update()
-
 	# needs to be called always to overwrite the changes made by the animator 
 	call_deferred("_update_visuals")
 

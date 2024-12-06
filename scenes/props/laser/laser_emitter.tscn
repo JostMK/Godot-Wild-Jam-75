@@ -218,7 +218,6 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_j6fty")
 animation = &"active"
 autoplay = "active"
-frame_progress = 0.180857
 
 [node name="ImpactSprite2D" type="AnimatedSprite2D" parent="Visuals"]
 unique_name_in_owner = true
@@ -227,5 +226,4 @@ scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0rqsy")
 animation = &"active"
 autoplay = "active"
-frame_progress = 0.180857
 offset = Vector2(0, -96)
