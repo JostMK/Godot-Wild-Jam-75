@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://components/cancel_rotation.gd" id="2_ige4k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rpwt1"]
-radius = 44.0114
+radius = 48.0
 
 [sub_resource type="Animation" id="Animation_uwbqp"]
 length = 0.001
