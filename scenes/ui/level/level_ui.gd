@@ -33,7 +33,7 @@ func toggle_stats_text(enable: bool) -> void:
 
 
 func set_stats_text(reflect_count: int) -> void:
-	stats_label.text = "Reflections used: %d" % reflect_count
+	stats_label.text = "%d Reflections Used!" % reflect_count
 
 
 func show_level_finished() -> void:
