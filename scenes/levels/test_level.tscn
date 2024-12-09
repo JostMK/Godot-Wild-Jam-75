@@ -39,7 +39,7 @@ position = Vector2(-240, 240)
 position = Vector2(432, -96)
 
 [node name="Saw4" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
-position = Vector2(576, -144)
+position = Vector2(1008, -192)
 
 [node name="Saw5" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
 position = Vector2(192, -240)
@@ -90,7 +90,7 @@ position = Vector2(2544, -240)
 position = Vector2(2448, 240)
 
 [node name="Saw21" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
-position = Vector2(3216, -240)
+position = Vector2(2832, -240)
 
 [node name="Saw22" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
 position = Vector2(2832, 240)
@@ -112,3 +112,6 @@ position = Vector2(3888, -144)
 
 [node name="Saw28" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
 position = Vector2(4128, 48)
+
+[node name="Saw29" parent="Map/Saws" instance=ExtResource("6_lrsuj")]
+position = Vector2(3312, -240)
