@@ -1,21 +1,92 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6l8u4efrjft7"]
+[gd_scene load_steps=13 format=3 uid="uid://b6l8u4efrjft7"]
 
 [ext_resource type="Script" path="res://scenes/props/cannon/cannon.gd" id="1_0tgv6"]
 [ext_resource type="Texture2D" uid="uid://br0cnx64tbkx7" path="res://assets/sprites/cannon.svg" id="1_r4otj"]
 [ext_resource type="PackedScene" uid="uid://b217sgubfrsu5" path="res://scenes/player/player.tscn" id="2_xhqyx"]
+[ext_resource type="Texture2D" uid="uid://bdrrbrlvof3d8" path="res://assets/sprites/cannon_effects.svg" id="3_4x06q"]
+[ext_resource type="AudioStream" uid="uid://oqqui0f1ffq" path="res://assets/audio/sfx/cannon_fire_sfx.wav" id="3_482ve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svgxb"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(0, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opjd6"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(384, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixopw"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(768, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx4n7"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(1152, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1rvt"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(1536, 0, 384, 384)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoku0"]
+atlas = ExtResource("3_4x06q")
+region = Rect2(1536, 0, 384, 384)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xb1jj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svgxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opjd6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixopw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx4n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1rvt")
+}],
+"loop": false,
+"name": &"fire",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoku0")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Cannon" type="Node2D"]
 script = ExtResource("1_0tgv6")
 player_scene = ExtResource("2_xhqyx")
 rotation_speed = 101.0
 
+[node name="SFXPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_482ve")
+bus = &"SFX"
+
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="CannonAnchor" type="Node2D" parent="Visuals"]
 unique_name_in_owner = true
 
-[node name="CannonSprite2D" type="Sprite2D" parent="Visuals/CannonAnchor"]
+[node name="CannonFireSprite2D" type="AnimatedSprite2D" parent="Visuals/CannonAnchor"]
+unique_name_in_owner = true
 z_index = 20
+position = Vector2(206, 0)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_xb1jj")
+animation = &"fire"
+autoplay = "idle"
+
+[node name="CannonSprite2D" type="Sprite2D" parent="Visuals/CannonAnchor"]
+z_index = 21
 position = Vector2(96, 0)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_r4otj")
@@ -27,7 +98,7 @@ unique_name_in_owner = true
 position = Vector2(157, 0)
 
 [node name="EmplacementSprite2D" type="Sprite2D" parent="Visuals"]
-z_index = 20
+z_index = 22
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_r4otj")
 region_enabled = true

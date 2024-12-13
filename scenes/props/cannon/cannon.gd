@@ -10,6 +10,8 @@ signal Fired(player: Player)
 
 @onready var cannon_anchor: Node2D = %CannonAnchor
 @onready var player_spawn: Node2D = %PlayerSpawn
+@onready var fire_effect: AnimatedSprite2D = %CannonFireSprite2D
+@onready var sfx_player: AudioStreamPlayer2D = %SFXPlayer2D
 
 var _player: Player
 var _active: bool
@@ -31,6 +33,8 @@ func setup() -> void:
 	_player.position = Vector2.ZERO
 	_player.rotation = 0
 
+	fire_effect.play("idle")
+
 
 func activate() -> void:
 	_active = true
@@ -49,6 +53,9 @@ func _process(delta: float) -> void:
 
 		_player.rotation = 0;
 		_player.set_direction(player_spawn.global_transform.x)
+
+		fire_effect.play("fire")
+		sfx_player.play()
 
 		Fired.emit(_player)
 		_player = null
