@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://duk533ajtr0cx"]
+[gd_scene load_steps=7 format=3 uid="uid://duk533ajtr0cx"]
 
 [ext_resource type="Script" path="res://components/game_orchestrator.gd" id="1_ba1j7"]
 [ext_resource type="PackedScene" uid="uid://dfj6a4mae85vf" path="res://scenes/camera/follow_camera.tscn" id="2_ci57k"]
 [ext_resource type="PackedScene" uid="uid://cnm031l5h33tj" path="res://scenes/levels/item_level.tscn" id="2_kdpc2"]
 [ext_resource type="PackedScene" uid="uid://c2k5bc822scbf" path="res://scenes/levels/test_level.tscn" id="2_xs6ok"]
 [ext_resource type="PackedScene" uid="uid://w7g81ip8idt8" path="res://scenes/ui/level/level_ui.tscn" id="4_4ajix"]
+[ext_resource type="Texture2D" uid="uid://jf7lrlv5ofcq" path="res://assets/sprites/placeholder.svg" id="5_2nii4"]
 
 [node name="Main" type="Node2D"]
 
@@ -16,6 +17,12 @@ levels = Array[PackedScene]([ExtResource("2_xs6ok"), ExtResource("2_kdpc2")])
 
 [node name="FollowCamera" parent="." instance=ExtResource("2_ci57k")]
 offset = Vector2(500, 0)
+
+[node name="TempBackground" type="Sprite2D" parent="FollowCamera"]
+self_modulate = Color(0.94, 0.994, 1, 1)
+position = Vector2(500, 0)
+scale = Vector2(5.4, 2.8)
+texture = ExtResource("5_2nii4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
