@@ -13,7 +13,6 @@ sync_to_physics = false
 script = ExtResource("1_m4fgs")
 visuals = NodePath("Sprite2D")
 speed = 500.0
-damage_layer = 4
 velocity_damping = 200.0
 rotation_speed = 720.0
 
@@ -24,3 +23,6 @@ shape = SubResource("RectangleShape2D_76guc")
 z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_vnj2m")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true

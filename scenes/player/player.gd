@@ -20,6 +20,8 @@ var charges: int
 var _velocity: Vector2
 var _dead: bool
 
+var _no_clip: bool
+
 func set_direction(direction: Vector2) -> void:
 	_velocity = direction * speed
 
@@ -63,6 +65,18 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	if _no_clip:
+		var dir: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		global_position += dir * speed * delta
+		return
+
+	if Input.is_action_just_pressed("no_clip"):
+		_no_clip = true
+		collision_layer = 0
+		collision_mask = 0
+		z_index = RenderingServer.CANVAS_ITEM_Z_MAX
+
+
 	if _dead:
 		_velocity = _velocity.move_toward(Vector2.ZERO, velocity_damping * delta)
 		# rotation speed is proportional to velocity
@@ -78,6 +92,9 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if _no_clip:
+		return
+
 	var move_amount: Vector2 = _velocity * delta
 
 	# collide up to 10 bounces
